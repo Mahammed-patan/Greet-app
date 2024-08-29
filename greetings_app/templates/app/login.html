@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <center><h3 style="color: rgb(14, 15, 15);">{{msg}}</h3></center>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="off" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

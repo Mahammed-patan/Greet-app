@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetings App</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Greetings App</h1>
+        <div class="options">
+            <!-- <a href="{% url 'loginpage' %}">Login</a> -->
+            <span class="login-message">Already have an account with us? <a href="{% url 'loginpage' %}">Login here</a></span>
+        </div>
+        <div class="options">
+            <!-- <a href="{% url 'signup' %}">Sign Up</a> -->
+            <span class="signup-message">Don't worry if you don't have an account with us, just click <a href="{% url 'signup' %}">here</a> and sign up with us!</span>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

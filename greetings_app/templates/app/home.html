@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome,</h2>
+    {% if request.session.Gender == 'Male' %}
+      <p>Your Name: Mr. {{ request.session.Username }}</p>
+    {% elif request.session.Gender == 'Female' %}
+      <p>Your Name: Ms. {{ request.session.Username }}</p>
+    {% else %}
+      <p>{{ request.session.Firstname }} {{ request.session.Lastname }}</p>
+    {% endif %}
+    <p>Your Email: {{ request.session.Email }}</p>
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Logout</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>SignUp</h1>
+        <center><h3 style="color: rgb(14, 15, 15);">{{msg}}</h3></center>
+        <form action="{% url 'register' %}" method="post"  >
+            {% csrf_token %}
+        <div class="input-group">
+            <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" autocomplete="off" required>
+        </div>
+        <div class="input-group">
+            <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" autocomplete="off" required>
+        </div>
+        Gender:
+        <select id="selection" name="selection">
+            <option value="">Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+          
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" autocomplete="off" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+        </div>
+        <div class="input-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <button type="submit">SIGNUP</button>
+        </form>
+    </div>
+</body>
+</html>
